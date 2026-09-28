@@ -106,21 +106,16 @@
 
   <div class="panel">
     <div class="status" id="dirtyStatus">Có thay đổi chưa được áp dụng cho trang chính thức.</div>
-    <h2>Áp dụng lên trang chính thức</h2>
-    <p class="sub">Nhấn nút bên dưới để gửi yêu cầu — một tab GitHub sẽ mở sẵn nội dung, bạn chỉ cần bấm "Submit new issue". Hệ thống sẽ tự động cập nhật trang thật trong ít phút, không cần thao tác gì thêm.</p>
+    <h2>Xuất danh sách để cập nhật</h2>
+    <p class="sub">Sao chép nội dung dưới đây và gửi cho trợ lý (Claude) trong cuộc trò chuyện để publish lên trang thật.</p>
+    <textarea id="exportBox" readonly></textarea>
     <div class="export-actions">
-      <button type="button" id="submitBtn">Gửi yêu cầu qua GitHub →</button>
-      <span class="copy-note" id="submitNote"></span>
+      <button type="button" id="copyBtn">Sao chép</button>
+      <span class="copy-note" id="copyNote"></span>
     </div>
-    <details style="margin-top:16px">
-      <summary style="cursor:pointer;font-size:12.5px;color:var(--muted)">Cách khác: sao chép thủ công</summary>
-      <textarea id="exportBox" readonly style="margin-top:12px"></textarea>
-      <div class="export-actions">
-        <button type="button" id="copyBtn">Sao chép</button>
-        <span class="copy-note" id="copyNote"></span>
-      </div>
-      <div class="instructions">Dán nội dung đã sao chép vào cuộc trò chuyện với trợ lý và nói "cập nhật danh sách tài khoản".</div>
-    </details>
+    <div class="instructions">
+      <b>Cách áp dụng:</b> dán nội dung đã sao chép vào cuộc trò chuyện với trợ lý và nói "cập nhật danh sách tài khoản". Trợ lý sẽ cập nhật và triển khai lại trang chính thức.
+    </div>
   </div>
 </div>
 
@@ -128,7 +123,7 @@
   (function(){
     const ADMIN_HASH='4cd81ba20a827ca8b628c980d5c81131e16d2a8c9c4be2b21980f2b235e3f608';
     const STORAGE_KEY='pfgAdminAccounts';
-    const LIVE_ACCOUNTS=["Admin", "linhpham"];
+    const LIVE_ACCOUNTS=["Admin", "linhpham", "chautran"];
 
     const html=document.documentElement;
     const gate=document.getElementById('authGate');
@@ -251,22 +246,6 @@
           copyNote.textContent='Đã sao chép.';
         }
         setTimeout(()=>{copyNote.textContent='';},2500);
-      });
-
-      const submitBtn=document.getElementById('submitBtn');
-      const submitNote=document.getElementById('submitNote');
-      submitBtn.addEventListener('click',()=>{
-        const list=loadAccounts();
-        const arrLiteral='["'+list.join('", "')+'"]';
-        const title='Update allowed accounts';
-        const body='const ALLOWED_ACCOUNTS = '+arrLiteral+';\n\n(Tự động tạo từ trang admin — vui lòng không sửa dòng trên)';
-        const url='https://github.com/nhungplc/1opartnerguide/issues/new'
-          +'?title='+encodeURIComponent(title)
-          +'&labels='+encodeURIComponent('account-request')
-          +'&body='+encodeURIComponent(body);
-        window.open(url, '_blank', 'noopener');
-        submitNote.textContent='Đã mở tab GitHub — nhấn "Submit new issue" để hoàn tất.';
-        setTimeout(()=>{submitNote.textContent='';},6000);
       });
 
       render();
