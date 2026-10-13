@@ -24,7 +24,7 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.62}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--soft);line-height:1.62}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     button{font:inherit}
@@ -67,9 +67,11 @@
     .side a.active b{color:var(--orange)}
     .side-note{margin-top:24px;padding:16px;background:var(--soft);border-radius:14px;font-size:12px;color:#6e7884}
     main{min-width:0}
-    section{padding:76px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}
-    section:last-child{border-bottom:none}
-    .section-kicker{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+    main{display:flex;flex-direction:column;gap:28px}
+    section{position:relative;overflow:hidden;padding:52px 48px;margin:0;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:0 1px 2px rgba(18,37,63,.03);scroll-margin-top:96px}
+    section:nth-child(even){background:linear-gradient(180deg,#fcfcfd,#fff 140px)}
+    .section-num{position:absolute;top:28px;right:36px;font-size:88px;font-weight:900;color:var(--navy);opacity:.045;line-height:1;letter-spacing:-.04em;pointer-events:none;user-select:none}
+    .section-kicker{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--orange);text-transform:uppercase;margin-bottom:10px;position:relative;z-index:1}
     h2{font-size:clamp(30px,3.5vw,44px);line-height:1.16;letter-spacing:-.03em;color:var(--navy);margin:0 0 16px}
     h3{font-size:20px;color:var(--navy);margin:34px 0 14px;letter-spacing:-.015em}
     .intro{font-size:17px;color:#566270;max-width:830px;margin:0 0 30px}
@@ -203,13 +205,13 @@
       .topnav{display:none}.menu-btn{display:block}.hero-inner{grid-template-columns:1fr}.hero-card{max-width:500px}.layout{grid-template-columns:1fr}.side{display:none}.journey{grid-template-columns:repeat(3,1fr)}.journey-item:nth-child(3):after{display:none}.steps{grid-template-columns:repeat(3,1fr)}.client-grid{grid-template-columns:repeat(4,1fr)}
     }
     @media(max-width:720px){
-      .topbar-inner{height:64px;padding:0 16px}.brand img{width:100px}.brand-title{display:none}.hero-inner{padding:56px 18px 48px}.hero-card{padding:23px}.layout{padding:0 18px}.grid-2,.grid-3,.grid-4,.solution-list,.signals,.cases,.tiers{grid-template-columns:1fr}.journey{grid-template-columns:1fr 1fr}.journey-item:after{display:none}.steps{grid-template-columns:1fr 1fr}section{padding:56px 0}.footer-inner{flex-direction:column;align-items:flex-start}.footer .right{text-align:left}.quote{font-size:15px;padding:22px}.solution-item{grid-template-columns:70px 1fr}.client-grid{grid-template-columns:repeat(3,1fr)}.mod-cols{grid-template-columns:1fr}.trait-grid{grid-template-columns:1fr}
+      .topbar-inner{height:64px;padding:0 16px}.brand img{width:100px}.brand-title{display:none}.hero-inner{padding:56px 18px 48px}.hero-card{padding:23px}.layout{padding:0 18px}.grid-2,.grid-3,.grid-4,.solution-list,.signals,.cases,.tiers{grid-template-columns:1fr}.journey{grid-template-columns:1fr 1fr}.journey-item:after{display:none}.steps{grid-template-columns:1fr 1fr}section{padding:36px 22px;border-radius:16px}.section-num{font-size:56px;top:16px;right:20px}.footer-inner{flex-direction:column;align-items:flex-start}.footer .right{text-align:left}.quote{font-size:15px;padding:22px}.solution-item{grid-template-columns:70px 1fr}.client-grid{grid-template-columns:repeat(3,1fr)}.mod-cols{grid-template-columns:1fr}.trait-grid{grid-template-columns:1fr}
       .mobile-nav{display:none;position:fixed;inset:64px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow);padding:12px 16px;z-index:45;max-height:calc(100vh - 64px);overflow:auto}
       .mobile-nav.open{display:block}.mobile-nav a{display:block;padding:12px 8px;border-bottom:1px solid #f0f1f3;font-weight:750;color:var(--navy)}
     }
     @media(min-width:721px){.mobile-nav{display:none!important}}
     @media print{
-      .topbar,.side,.backtop,.menu-btn,.mobile-nav,.tab-bar{display:none!important}.layout{display:block;max-width:none}.hero-inner{max-width:none}.hero-card{box-shadow:none}.footer{break-before:page}section{break-inside:avoid}.card,.table-wrap{box-shadow:none}.tab-panel{display:block!important}.tool-wrap{padding:30px 0}.industry-picker,.lookup-empty{display:none!important}.industry-block{display:block!important;break-inside:avoid;margin-top:28px}.shared-advice{display:block!important}
+      .topbar,.side,.backtop,.menu-btn,.mobile-nav,.tab-bar{display:none!important}.layout{display:block;max-width:none}.hero-inner{max-width:none}.hero-card{box-shadow:none}.footer{break-before:page}section{break-inside:avoid;box-shadow:none;background:#fff!important;border-color:var(--line)}.section-num{display:none}.card,.table-wrap{box-shadow:none}.tab-panel{display:block!important}.tool-wrap{padding:30px 0}.industry-picker,.lookup-empty{display:none!important}.industry-block{display:block!important;break-inside:avoid;margin-top:28px}.shared-advice{display:block!important}
     }
 
     html.locked body>:not(#authGate){display:none!important}
@@ -323,6 +325,7 @@
 
   <main>
     <section id="chuong-trinh">
+      <div class="section-num">01</div>
       <div class="section-kicker">01 · Chương trình hợp tác</div>
       <h2>Mô hình hợp tác giữa Đối tác và 1Office</h2>
       <p class="intro">Chương trình đối tác 1Office được xây dựng trên cơ sở kết nối thế mạnh của hai bên: đối tác am hiểu khách hàng và thị trường; 1Office phụ trách tư vấn giải pháp, xây dựng phương án và triển khai. Mục tiêu chung là đưa đúng giải pháp tới đúng nhu cầu và duy trì giá trị lâu dài cho khách hàng.</p>
@@ -352,6 +355,7 @@
     </section>
 
     <section id="giai-phap">
+      <div class="section-num">02</div>
       <div class="section-kicker">02 · Tổng quan 1Office & Giải pháp</div>
       <h2>Một nền tảng cho các bài toán quản trị doanh nghiệp</h2>
       <p class="intro">1Office là nền tảng quản trị doanh nghiệp hợp nhất, kết nối dữ liệu về con người, công việc, quy trình và khách hàng trên cùng một hệ thống. Doanh nghiệp có thể triển khai theo từng nhu cầu và mở rộng theo lộ trình phát triển.</p>
@@ -374,6 +378,7 @@
     </section>
 
     <section id="khach-hang">
+      <div class="section-num">03</div>
       <div class="section-kicker">03 · Khách hàng mục tiêu</div>
       <h2>Nhóm doanh nghiệp và dấu hiệu cơ hội</h2>
       <p class="intro">Cơ hội phù hợp thường xuất hiện khi doanh nghiệp bắt đầu phát sinh độ phức tạp trong quản trị con người, công việc, quy trình hoặc dữ liệu; đặc biệt ở giai đoạn mở rộng quy mô, tăng số đơn vị vận hành hoặc cần chuẩn hóa cách làm giữa các bộ phận.</p>
@@ -403,6 +408,7 @@
     </section>
 
     <section id="phoi-hop">
+      <div class="section-num">04</div>
       <div class="section-kicker">04 · Quy trình phối hợp</div>
       <h2>Từ giới thiệu khách hàng đến đối soát</h2>
       <p class="intro">Sau khi tiếp nhận thông tin giới thiệu, 1Office kiểm tra điều kiện ghi nhận nguồn và phối hợp với đối tác trong suốt quá trình tư vấn. Trạng thái cơ hội được theo dõi trên hệ thống để đảm bảo thông tin nhất quán và phục vụ đối soát theo chính sách.</p>
@@ -430,6 +436,7 @@
     </section>
 
     <section id="chinh-sach">
+      <div class="section-num">05</div>
       <div class="section-kicker">05 · Chính sách & Phân hạng đối tác</div>
       <h2>Ghi nhận mức độ hợp tác và quyền lợi theo phân hạng</h2>
       <p class="intro">Chính sách đối tác được áp dụng theo cơ chế điểm nhằm ghi nhận mức độ hợp tác, kết quả giới thiệu khách hàng và đóng góp phát triển thị trường. Phân hạng là căn cứ áp dụng quyền lợi, hoa hồng và các chương trình đồng hành tương ứng.</p>
