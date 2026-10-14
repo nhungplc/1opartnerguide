@@ -168,10 +168,15 @@
     .industry-head h4{margin:0;font-size:16px;color:var(--navy);letter-spacing:-.01em}
     .industry-count{font-size:10.5px;font-weight:850;color:var(--orange);background:var(--soft-orange);padding:3px 9px;border-radius:999px;letter-spacing:.03em}
     .lookup-empty{margin-top:22px;padding:22px 24px;border:1px dashed var(--line);border-radius:16px;background:var(--soft);color:#6e7884;font-size:14px;text-align:center}
-    .trait-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 16px}
-    .trait-card{background:var(--soft);border-radius:14px;padding:16px 18px}
-    .trait-card h5{margin:0 0 6px;font-size:11.5px;font-weight:850;color:var(--orange);text-transform:uppercase;letter-spacing:.05em}
-    .trait-card p{margin:0;font-size:13.5px;color:#4e5a67;line-height:1.55}
+    .trait-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0 16px;align-items:stretch}
+    .trait-card{border-radius:16px;padding:22px 24px;border:1px solid var(--line);border-left:4px solid var(--navy-2)}
+    .trait-card.type-pain{border-left-color:var(--orange)}
+    .trait-card h5{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:12px;font-weight:900;color:var(--navy-2);text-transform:uppercase;letter-spacing:.06em}
+    .trait-card.type-pain h5{color:var(--orange)}
+    .trait-card p{margin:0;font-size:14.5px;color:#3c4652;line-height:1.65}
+    .trait-card ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+    .trait-card ul li{font-size:14.5px;color:#3c4652;line-height:1.5;padding-left:22px;position:relative}
+    .trait-card.type-pain ul li:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:3px;background:var(--orange)}
     .probe-card{border:1px solid rgba(241,90,36,.25);background:linear-gradient(135deg,var(--soft-orange),#fff);border-radius:14px;padding:16px 18px;margin-bottom:24px}
     .probe-card h5{margin:0 0 8px;font-size:11.5px;font-weight:850;color:var(--orange);text-transform:uppercase;letter-spacing:.05em}
     .probe-card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
@@ -535,8 +540,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều điểm bán, kho hàng và nhà cung cấp; dòng tiền và công nợ biến động theo mùa vụ, cần theo dõi sát.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý nhiều điểm bán/kho hàng, công nợ và dữ liệu khách hàng phân tán; cần chuẩn hóa quy trình bán hàng và kiểm soát công nợ.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành qua nhiều điểm bán, kho hàng và nhà cung cấp cùng lúc; dòng tiền và tồn kho biến động mạnh theo mùa vụ, khuyến mãi. Đội ngũ bán hàng và thu mua thường xuyên phát sinh giao dịch, công nợ hai chiều với đối tác.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Đối soát công nợ với nhiều nhà cung cấp/khách hàng tốn nhiều thời gian và dễ sai lệch.</li><li>Tồn kho giữa các kho/chi nhánh không khớp, khó kiểm soát theo thời gian thực.</li><li>Dữ liệu khách hàng phân tán, dễ thất lạc khi nhân sự bán hàng nghỉ việc.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -641,8 +646,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều ca làm, nhà máy/xưởng, lực lượng lao động lớn, quy trình sản xuất nhiều công đoạn.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Ca kíp - chấm công - lương phức tạp; quy trình sản xuất nhiều bước; khó chuẩn hóa và tổng hợp báo cáo giữa các xưởng/ca.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành theo nhiều ca/kíp tại nhà máy, xưởng với lực lượng lao động lớn và quy trình sản xuất nhiều công đoạn nối tiếp nhau. Năng suất và chất lượng phụ thuộc chặt vào sự phối hợp giữa các bộ phận, ca làm và kiểm soát nguyên vật liệu.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Chấm công - tính lương theo ca/kíp phức tạp, dễ sai sót và phát sinh khiếu nại.</li><li>Khó xác định trách nhiệm khi có sự cố trên dây chuyền hoặc giữa các công đoạn.</li><li>Báo cáo sản lượng, hao hụt nguyên vật liệu tổng hợp thủ công, chậm và thiếu chính xác.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -747,8 +752,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều công trình/dự án chạy song song, đội ngũ và nhà thầu phụ phân tán theo địa điểm thi công.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý tiến độ nhiều công trình, nhà thầu phụ phân tán; phê duyệt chi phí và hồ sơ kỹ thuật chậm, khó kiểm soát.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Triển khai đồng thời nhiều công trình/dự án ở các địa điểm khác nhau, phối hợp với nhiều nhà thầu phụ và đơn vị cung ứng. Tiến độ, chi phí và chất lượng công trình phụ thuộc vào khả năng giám sát từ xa và phê duyệt kịp thời.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Tổng hợp tiến độ, chi phí giữa các công trình chậm, thiếu minh bạch theo thời gian thực.</li><li>Phê duyệt hồ sơ, tạm ứng, nghiệm thu qua nhiều cấp gây chậm trễ dòng tiền.</li><li>Hồ sơ kỹ thuật, bản vẽ thi công lưu trữ rời rạc theo từng công trình, khó tra cứu lại.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -853,8 +858,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều khách hàng/đơn hàng phát sinh liên tục, đội ngũ kinh doanh di chuyển nhiều, ít thời gian nhập liệu.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Nhiều khách hàng/đơn hàng cùng lúc, đội ngũ kinh doanh phân tán; khó theo dõi cơ hội và dữ liệu khách hàng tập trung.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Đội ngũ kinh doanh di chuyển nhiều, tiếp xúc trực tiếp với số lượng lớn khách hàng/đơn hàng phát sinh liên tục. Hiệu quả phụ thuộc vào tốc độ phản hồi khách hàng và khả năng theo dõi cơ hội xuyên suốt.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Dữ liệu khách hàng và lịch sử chăm sóc nằm rải rác (sổ tay, Excel, Zalo), khó tổng hợp.</li><li>Mất dữ liệu khách hàng/cơ hội khi nhân viên kinh doanh nghỉ việc hoặc chuyển phụ trách.</li><li>Báo cáo doanh số theo nhân viên/khu vực tổng hợp thủ công, chậm ra quyết định.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -959,8 +964,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều dự án/sprint chạy song song, đội kỹ thuật làm việc theo nhóm nhỏ và thay đổi phân công liên tục.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý nhiều dự án/sprint song song, phân bổ nhân sự kỹ thuật và theo dõi tiến độ triển khai cho khách hàng.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Triển khai nhiều dự án/sản phẩm phần mềm song song với các nhóm kỹ thuật nhỏ, thay đổi phân công liên tục theo tiến độ. Chất lượng bàn giao phụ thuộc vào sự phối hợp giữa các vai trò (dev, QA, PM) và minh bạch tiến độ với khách hàng.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Theo dõi tiến độ nhiều dự án cùng lúc bằng nhiều công cụ rời rạc, khó tổng hợp.</li><li>Phân bổ nhân sự kỹ thuật giữa các dự án chồng chéo, thiếu minh bạch.</li><li>Mất nhiều thời gian tổng hợp báo cáo tiến độ mỗi khi khách hàng yêu cầu.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1064,8 +1069,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều cơ sở/chi nhánh đào tạo, đội ngũ giảng viên và nhân sự phân tán, cần chuẩn hóa vận hành giữa các đơn vị.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Phối hợp nhiều cơ sở/đơn vị đào tạo; quản lý hồ sơ nhân sự giảng viên và chuẩn hóa quy trình vận hành giữa các chi nhánh.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành qua nhiều cơ sở/chi nhánh đào tạo với đội ngũ giảng viên, nhân sự phân tán theo địa bàn. Chất lượng đào tạo và trải nghiệm học viên phụ thuộc vào mức độ chuẩn hóa quy trình giữa các cơ sở.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Quy trình, biểu mẫu vận hành không thống nhất giữa các cơ sở, mỗi nơi làm một kiểu.</li><li>Quản lý hồ sơ, chấm công giảng viên/nhân viên tại nhiều cơ sở tốn nhiều thời gian.</li><li>Nhân bản quy trình vận hành khi mở cơ sở mới mất nhiều công sức, dễ sai lệch.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1167,8 +1172,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Quỹ căn/dự án lớn, đội ngũ kinh doanh phân tán nhiều sàn/đại lý, chu kỳ bán hàng dài.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý quỹ căn/dự án, đội ngũ kinh doanh phân tán nhiều sàn; kiểm soát dữ liệu khách hàng và công nợ bán hàng.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Kinh doanh qua nhiều sàn/đại lý phân phối với quỹ căn/dự án lớn, chu kỳ bán hàng dài và nhiều đợt thanh toán theo tiến độ. Hiệu quả bán hàng phụ thuộc vào tốc độ xử lý dữ liệu khách hàng tiềm năng từ nhiều nguồn.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Dữ liệu khách hàng tiềm năng từ các sàn/đại lý không được tổng hợp về một hệ thống.</li><li>Theo dõi công nợ bán hàng (đặt cọc, thanh toán theo tiến độ) thủ công, dễ sai sót.</li><li>Mất dữ liệu khách hàng/cơ hội khi giao dịch viên nghỉ việc hoặc đổi phụ trách.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1269,8 +1274,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhiều dự án thiết kế chạy song song, phối hợp chặt giữa đội thiết kế và xưởng thi công.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý nhiều dự án thiết kế đồng thời; phối hợp xưởng thi công và kiểm soát tiến độ bàn giao.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Triển khai nhiều dự án thiết kế đồng thời, đòi hỏi phối hợp chặt chẽ và liên tục giữa đội thiết kế, khách hàng và xưởng/đội thi công. Tiến độ bàn giao phụ thuộc vào tốc độ phản hồi, phê duyệt bản vẽ giữa các bên.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Phản hồi, chỉnh sửa bản vẽ qua nhiều kênh (email, Zalo, giấy) gây thất lạc thông tin.</li><li>Phối hợp giữa đội thiết kế và thi công thiếu đồng bộ, dễ sai lệch so với bản vẽ gốc.</li><li>Tiến độ bàn giao dự án thường bị trễ do chờ phê duyệt hoặc thiếu thông tin kịp thời.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1371,8 +1376,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhân sự theo ca tại nhiều cơ sở, biến động nhân sự cao, cần chuẩn hóa vận hành đồng loạt.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Nhân sự theo ca tại nhiều cơ sở, chấm công - lương phức tạp; khó chuẩn hóa vận hành đồng loạt giữa các điểm bán.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành nhiều cơ sở với nhân sự làm việc theo ca, tỷ lệ luân chuyển nhân sự cao và yêu cầu chuẩn hóa trải nghiệm phục vụ đồng loạt. Hiệu quả vận hành phụ thuộc vào tốc độ xếp ca và kiểm soát quy trình tại từng điểm bán.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Xếp ca và tính lương theo giờ/ca làm thủ công, tốn thời gian và dễ sai sót.</li><li>Chuẩn hóa quy trình vận hành giống nhau giữa các cơ sở mới và cũ mất nhiều thời gian.</li><li>Tỷ lệ nghỉ việc cao khiến tuyển dụng, đào tạo nhân sự mới trở thành gánh nặng thường xuyên.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1471,8 +1476,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Quy trình phê duyệt nhiều cấp, yêu cầu kiểm soát rủi ro vận hành và tuân thủ chặt chẽ.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quy trình phê duyệt nhiều cấp, yêu cầu kiểm soát rủi ro vận hành và ký số/lưu vết chặt chẽ.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành qua nhiều cấp phê duyệt nghiêm ngặt, chịu yêu cầu kiểm soát rủi ro và tuân thủ quy định chặt chẽ. Mọi quy trình đều cần được lưu vết đầy đủ để phục vụ kiểm tra, đối soát khi cần.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Phê duyệt hồ sơ/hợp đồng qua nhiều cấp gây chậm trễ, ảnh hưởng trải nghiệm khách hàng.</li><li>Lưu vết, ký số và tra soát lại quy trình khi cần kiểm tra còn thủ công, mất thời gian.</li><li>Phối hợp giữa các phòng ban trong một quy trình phê duyệt chưa rõ trách nhiệm từng bước.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1555,8 +1560,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Nhân sự y tế làm việc theo ca trực, phối hợp giữa nhiều khoa/phòng, yêu cầu minh bạch trách nhiệm cao.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Quản lý nhân sự y tế theo ca trực, phối hợp nhiều khoa/phòng; cần minh bạch trách nhiệm xử lý công việc.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành liên tục theo ca trực với nhân sự y tế thuộc nhiều khoa/phòng khác nhau, đòi hỏi phối hợp xử lý nhanh và chính xác. An toàn người bệnh phụ thuộc vào mức độ minh bạch trách nhiệm giữa các bộ phận.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Xếp lịch trực và chấm công cho nhân sự y tế gây áp lực lớn cho bộ phận nhân sự.</li><li>Khó xác định trách nhiệm xử lý khi có sự cố phát sinh giữa các khoa/phòng.</li><li>Hồ sơ nhân sự y tế (chứng chỉ hành nghề, lịch trực, đào tạo) chưa được quản lý tập trung.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
@@ -1655,8 +1660,8 @@
       <div class="subcat-empty">👆 Chọn một mục ở trên để xem nội dung.</div>
       <div class="subcat-panel" data-subcat="dac-thu">
       <div class="trait-grid">
-        <div class="trait-card"><h5>Đặc thù ngành hàng</h5><p>Vận hành theo tiêu chuẩn tập đoàn mẹ, có yếu tố đa ngôn ngữ và yêu cầu báo cáo xuyên quốc gia.</p></div>
-        <div class="trait-card"><h5>Bài toán chủ yếu</h5><p>Chuẩn hóa quy trình theo tiêu chuẩn tập đoàn mẹ, vận hành đa ngôn ngữ và kiểm soát báo cáo xuyên quốc gia.</p></div>
+        <div class="trait-card type-trait"><h5>Đặc thù ngành hàng</h5><p>Vận hành theo tiêu chuẩn và quy trình của tập đoàn mẹ ở nước ngoài, có yếu tố đa ngôn ngữ trong giao tiếp nội bộ. Yêu cầu báo cáo xuyên quốc gia đòi hỏi dữ liệu chính xác, kịp thời và đúng chuẩn tập đoàn.</p></div>
+        <div class="trait-card type-pain"><h5>Bài toán chủ yếu</h5><ul><li>Tổng hợp báo cáo số liệu gửi về tập đoàn mẹ còn thủ công, tốn nhiều thời gian.</li><li>Quy trình nội bộ tại chi nhánh Việt Nam chưa đồng nhất với chuẩn của tập đoàn mẹ.</li><li>Rào cản ngôn ngữ giữa nhân sự Việt Nam và quản lý nước ngoài gây chậm trễ phê duyệt.</li></ul></div>
       </div>
       </div>
       <div class="subcat-panel" data-subcat="khach-hang">
